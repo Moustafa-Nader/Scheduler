@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OSassignment
 {
     class Program
     {
+        static Form1 myform;
+        //[STAThread]
         static void Main(string[] args)
         {
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+
 
             Process proc1 = new Process(0, 10, 11, 15, new Color(250, 200, 150));
             Process testProc2 = new Process(1, 7, 3, 13, new Color(250, 200, 150));
@@ -44,7 +52,8 @@ namespace OSassignment
             PS ps = new PS(pr);
             ps.Simulate();
             ps.print();
-            Console.ReadLine();
+            myform = new Form1(ps.processes);
+            Application.Run(myform);
         }
     }
 }

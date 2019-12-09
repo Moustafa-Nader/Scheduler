@@ -1,7 +1,7 @@
 ﻿using System;
 namespace OSassignment
 {
-    class Process : IComparable<Process>
+    public class Process : IComparable<Process>
     {
         public int pId;
         public Color pColor;

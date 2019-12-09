@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 namespace OSassignment
 {
-    class PS
+     class PS
     {
         List<int> pWaitTime;
         List<int> pTurnAroundTime;
-        List<Process> processes;
+        public List<Process> processes;
         List<Process> tmpList;
 
         public PS(List<Process> schedulingList)
@@ -20,7 +20,7 @@ namespace OSassignment
 
         }
         List<Process> readyQueue;
-        public void Simulate()
+         public void Simulate()
         {
             //aging factor = 4
             int Aging = 4;

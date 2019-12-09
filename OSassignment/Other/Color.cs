@@ -1,6 +1,6 @@
 ﻿namespace OSassignment
 {
-    class Color
+   public class Color
     {
         private byte[] rgb = new byte[3];
 
