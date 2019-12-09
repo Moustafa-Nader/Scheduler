@@ -1,0 +1,20 @@
+C:\Users\Eyad\source\repos\OSassignment\OSassignment\bin\Debug\OSassignment.exe.config
+C:\Users\Eyad\source\repos\OSassignment\OSassignment\bin\Debug\OSassignment.exe
+C:\Users\Eyad\source\repos\OSassignment\OSassignment\bin\Debug\OSassignment.pdb
+C:\Users\Eyad\source\repos\OSassignment\OSassignment\obj\Debug\OSassignment.csprojAssemblyReference.cache
+C:\Users\Eyad\source\repos\OSassignment\OSassignment\obj\Debug\OSassignment.csproj.CoreCompileInputs.cache
+C:\Users\Eyad\source\repos\OSassignment\OSassignment\obj\Debug\OSassignment.exe
+C:\Users\Eyad\source\repos\OSassignment\OSassignment\obj\Debug\OSassignment.pdb
+D:\Media\School\3rd year\1st semester\os\ass3\OSassignment\OSassignment\bin\Debug\OSassignment.exe.config
+D:\Media\School\3rd year\1st semester\os\ass3\OSassignment\OSassignment\bin\Debug\OSassignment.exe
+D:\Media\School\3rd year\1st semester\os\ass3\OSassignment\OSassignment\bin\Debug\OSassignment.pdb
+D:\Media\School\3rd year\1st semester\os\ass3\OSassignment\OSassignment\obj\Debug\OSassignment.csprojAssemblyReference.cache
+D:\Media\School\3rd year\1st semester\os\ass3\OSassignment\OSassignment\obj\Debug\OSassignment.exe
+D:\Media\School\3rd year\1st semester\os\ass3\OSassignment\OSassignment\obj\Debug\OSassignment.pdb
+E:\New folder (11)\OSassignment\OSassignment\bin\Debug\OSassignment.exe.config
+E:\New folder (11)\OSassignment\OSassignment\bin\Debug\OSassignment.exe
+E:\New folder (11)\OSassignment\OSassignment\bin\Debug\OSassignment.pdb
+E:\New folder (11)\OSassignment\OSassignment\obj\Debug\OSassignment.csprojAssemblyReference.cache
+E:\New folder (11)\OSassignment\OSassignment\obj\Debug\OSassignment.csproj.CoreCompileInputs.cache
+E:\New folder (11)\OSassignment\OSassignment\obj\Debug\OSassignment.exe
+E:\New folder (11)\OSassignment\OSassignment\obj\Debug\OSassignment.pdb
