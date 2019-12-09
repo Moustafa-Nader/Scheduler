@@ -14,7 +14,6 @@ D:\Media\School\3rd year\1st semester\os\ass3\OSassignment\OSassignment\obj\Debu
 E:\New folder (11)\OSassignment\OSassignment\bin\Debug\OSassignment.exe.config
 E:\New folder (11)\OSassignment\OSassignment\bin\Debug\OSassignment.exe
 E:\New folder (11)\OSassignment\OSassignment\bin\Debug\OSassignment.pdb
-E:\New folder (11)\OSassignment\OSassignment\obj\Debug\OSassignment.csprojAssemblyReference.cache
 E:\New folder (11)\OSassignment\OSassignment\obj\Debug\OSassignment.csproj.CoreCompileInputs.cache
 E:\New folder (11)\OSassignment\OSassignment\obj\Debug\OSassignment.exe
 E:\New folder (11)\OSassignment\OSassignment\obj\Debug\OSassignment.pdb

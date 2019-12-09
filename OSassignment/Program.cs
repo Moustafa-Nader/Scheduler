@@ -16,10 +16,11 @@ namespace OSassignment
             Process testProc3 = new Process(2, 15, 15, 19, new Color(250, 200, 150));
             Process testProc4 = new Process(3, 9, 9, 15, new Color(250, 200, 150));
             List<Process> p = new List<Process> { proc1, testProc2, testProc3, testProc4 };
-
+            List<Process> pr = new List<Process> { proc1, testProc2, testProc3, testProc4 };
             SJF2 sjf = new SJF2(p);
             sjf.Simulate();
             sjf.Print();
+            Console.WriteLine("\n");
             /*
             SJF sjf = new SJF(p);
             Console.WriteLine(sjf.print());
@@ -40,6 +41,9 @@ namespace OSassignment
             //Console.WriteLine(String.Format("Average wait time: {0}\tAverage turn around time: {1}"), avgTime.Item1.ToString(), avgTime.Item2.ToString());
             //Console.WriteLine(sjf.print());
             */
+            PS ps = new PS(pr);
+            ps.Simulate();
+            ps.print();
             Console.ReadLine();
         }
     }
