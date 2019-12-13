@@ -49,21 +49,25 @@
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar;
+            series1.CustomProperties = "DrawSideBySide=False";
             series1.Legend = "Legend1";
             series1.Name = "Process 0";
             series1.YValuesPerPoint = 2;
             series2.ChartArea = "ChartArea1";
             series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar;
+            series2.CustomProperties = "DrawSideBySide=False";
             series2.Legend = "Legend1";
             series2.Name = "Process 1";
             series2.YValuesPerPoint = 2;
             series3.ChartArea = "ChartArea1";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar;
+            series3.CustomProperties = "DrawSideBySide=False";
             series3.Legend = "Legend1";
             series3.Name = "Process 2";
             series3.YValuesPerPoint = 2;
             series4.ChartArea = "ChartArea1";
             series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar;
+            series4.CustomProperties = "DrawSideBySide=False";
             series4.Legend = "Legend1";
             series4.Name = "Process 3";
             series4.YValuesPerPoint = 2;
@@ -74,7 +78,6 @@
             this.chart1.Size = new System.Drawing.Size(822, 389);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
-          //  this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // Form1
             // 

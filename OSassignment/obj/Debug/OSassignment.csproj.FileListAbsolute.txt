@@ -29,3 +29,13 @@ D:\Programming Projects\Scheduler\OSassignment\obj\Debug\OSassignment.csproj.Gen
 D:\Programming Projects\Scheduler\OSassignment\obj\Debug\OSassignment.csproj.CoreCompileInputs.cache
 D:\Programming Projects\Scheduler\OSassignment\obj\Debug\OSassignment.exe
 D:\Programming Projects\Scheduler\OSassignment\obj\Debug\OSassignment.pdb
+E:\New folder (12)\Scheduler\OSassignment\bin\Debug\OSassignment.exe.config
+E:\New folder (12)\Scheduler\OSassignment\bin\Debug\OSassignment.exe
+E:\New folder (12)\Scheduler\OSassignment\bin\Debug\OSassignment.pdb
+E:\New folder (12)\Scheduler\OSassignment\obj\Debug\OSassignment.csprojAssemblyReference.cache
+E:\New folder (12)\Scheduler\OSassignment\obj\Debug\OSassignment.Form1.resources
+E:\New folder (12)\Scheduler\OSassignment\obj\Debug\OSassignment.SRTFForm.resources
+E:\New folder (12)\Scheduler\OSassignment\obj\Debug\OSassignment.csproj.GenerateResource.cache
+E:\New folder (12)\Scheduler\OSassignment\obj\Debug\OSassignment.csproj.CoreCompileInputs.cache
+E:\New folder (12)\Scheduler\OSassignment\obj\Debug\OSassignment.exe
+E:\New folder (12)\Scheduler\OSassignment\obj\Debug\OSassignment.pdb
