@@ -11,6 +11,8 @@ namespace OSassignment
         public int pWaitingTime;
         public int pRemTime;
         public bool isFinished;
+        public int AGquantam;       //process quantam for AG
+        public int AGfactor;        //process factor for AG
 
         public Process(int _pid, int _pat, int _pbt, int _pp, Color _color)
         {
@@ -21,6 +23,7 @@ namespace OSassignment
             pPriority = _pp;
             isFinished = false;
             pWaitingTime = 0;
+            AGfactor = _pbt + _pat + _pp;
         }
 
         public int pTurnAroundTime
@@ -42,5 +45,11 @@ namespace OSassignment
             res += "\n" + string.Format("Waiting Time {0} : Turn Around Time {1}", pWaitingTime, pTurnAroundTime);
             return res;
         }
+
+        public bool Finished()
+        {
+            return pRemTime == 0;
+        }
+
     }
 }

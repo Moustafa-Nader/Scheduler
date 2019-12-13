@@ -20,3 +20,12 @@ E:\New folder (11)\OSassignment\OSassignment\obj\Debug\OSassignment.pdb
 E:\New folder (11)\OSassignment\OSassignment\obj\Debug\OSassignment.csprojAssemblyReference.cache
 E:\New folder (11)\OSassignment\OSassignment\obj\Debug\OSassignment.Form1.resources
 E:\New folder (11)\OSassignment\OSassignment\obj\Debug\OSassignment.csproj.GenerateResource.cache
+D:\Programming Projects\Scheduler\OSassignment\bin\Debug\OSassignment.exe.config
+D:\Programming Projects\Scheduler\OSassignment\bin\Debug\OSassignment.exe
+D:\Programming Projects\Scheduler\OSassignment\bin\Debug\OSassignment.pdb
+D:\Programming Projects\Scheduler\OSassignment\obj\Debug\OSassignment.csprojAssemblyReference.cache
+D:\Programming Projects\Scheduler\OSassignment\obj\Debug\OSassignment.Form1.resources
+D:\Programming Projects\Scheduler\OSassignment\obj\Debug\OSassignment.csproj.GenerateResource.cache
+D:\Programming Projects\Scheduler\OSassignment\obj\Debug\OSassignment.csproj.CoreCompileInputs.cache
+D:\Programming Projects\Scheduler\OSassignment\obj\Debug\OSassignment.exe
+D:\Programming Projects\Scheduler\OSassignment\obj\Debug\OSassignment.pdb
