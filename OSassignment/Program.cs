@@ -23,12 +23,21 @@ namespace OSassignment
             Process testProc2 = new Process(1, 7, 3, 13, new Color(250, 200, 150));
             Process testProc3 = new Process(2, 15, 15, 19, new Color(250, 200, 150));
             Process testProc4 = new Process(3, 9, 9, 15, new Color(250, 200, 150));
+            Process AGtestProc1 = new Process(0, 0, 17, 4, new Color(250, 200, 150));
+            Process AGtestProc2 = new Process(1, 3, 6, 9, new Color(250, 200, 150));
+            Process AGtestProc3 = new Process(2, 4, 10, 3, new Color(250, 200, 150));
+            Process AGtestProc4 = new Process(3, 29, 4, 8, new Color(250, 200, 150));
             List<Process> p = new List<Process> { proc1, testProc2, testProc3, testProc4 };
             List<Process> pr = new List<Process> { proc1, testProc2, testProc3, testProc4 };
+            List<Process> AGpr = new List<Process> { AGtestProc1, AGtestProc2, AGtestProc3, AGtestProc4 };
             SJF2 sjf = new SJF2(p);
             sjf.Simulate();
             sjf.Print();
             Console.WriteLine("\n");
+
+            AG ag = new AG(AGpr);
+            ag.Simulate();
+            ag.print();
             /*
             SJF sjf = new SJF(p);
             Console.WriteLine(sjf.print());
@@ -50,8 +59,8 @@ namespace OSassignment
             //Console.WriteLine(sjf.print());
             */
             PS ps = new PS(pr);
-            ps.Simulate();
-            ps.print();
+            //ps.Simulate();
+            //ps.print();
             myform = new Form1(ps.processes);
             Application.Run(myform);
         }
