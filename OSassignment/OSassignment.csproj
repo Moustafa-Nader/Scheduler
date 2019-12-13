@@ -57,6 +57,7 @@
     <Compile Include="NonPreemptiveSJF\SJF2.cs" />
     <Compile Include="Other\Process.cs" />
     <Compile Include="Other\Color.cs" />
+    <Compile Include="PreemptiveSRTF\SRTF.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NonPreemptivePriorityScheduling\PS.cs" />
