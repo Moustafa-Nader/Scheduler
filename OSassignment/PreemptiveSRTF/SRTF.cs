@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OSassignment
 {
@@ -11,12 +12,14 @@ namespace OSassignment
         List<Process> processes;
         List<Process> readyQueue;
         List<Process> finishedProcs;
+        List<Process> timeAxis;
         Process currentProc;
         public SRTF(List<Process> procs)
         {
             processes = procs.ToList(); // take a copy
             readyQueue = new List<Process>();
             finishedProcs = new List<Process>();
+            timeAxis = new List<Process>();
             currentProc = null;
         }
 
@@ -70,6 +73,7 @@ namespace OSassignment
             // decrease remaining time of current process
             if (currentProc != null)
             {
+                timeAxis.Add(currentProc);
                 // Console.WriteLine(time.ToString() + " " + currentProc.pId.ToString() + " " + currentProc.pWaitingTime.ToString());
                 currentProc.pRemTime--;
                 if (currentProc.pRemTime == 0)
@@ -77,6 +81,10 @@ namespace OSassignment
                     finishedProcs.Add(currentProc);
                     currentProc = null;
                 }
+            }
+            else
+            {
+                timeAxis.Add(null);
             }
             // update waiting time of each process
             foreach (Process proc in readyQueue)
@@ -98,6 +106,11 @@ namespace OSassignment
             avgWaiting /= (double)finishedProcs.Count;
             Console.WriteLine("Average Waiting Time : " + avgWaiting.ToString());
             Console.WriteLine("Average Turn Around Time : " + avgTurnAround.ToString());
+        }
+
+        public void Display()
+        {
+            Application.Run(new SRTFForm(timeAxis));
         }
     }
 }

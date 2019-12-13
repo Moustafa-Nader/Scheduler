@@ -15,9 +15,9 @@ namespace OSassignment
         static List<Process> testList()
         {
             Process proc1 = new Process(0, 10, 11, 15, new Color(250, 200, 150));
-            Process testProc2 = new Process(1, 7, 3, 13, new Color(250, 200, 150));
+            Process testProc2 = new Process(1, 7, 9, 13, new Color(250, 200, 150));
             Process testProc3 = new Process(2, 15, 15, 19, new Color(250, 200, 150));
-            Process testProc4 = new Process(3, 9, 9, 15, new Color(250, 200, 150));
+            Process testProc4 = new Process(3, 8, 5, 15, new Color(250, 200, 150));
             return new List<Process> { proc1, testProc2, testProc3, testProc4 };
         }
 
@@ -53,6 +53,7 @@ namespace OSassignment
             SRTF srtf = new SRTF(testList());
             srtf.Simulate();
             srtf.Print();
+            srtf.Display();
             Console.WriteLine("\n--\n");
 
             AG ag = new AG(AGpr);
