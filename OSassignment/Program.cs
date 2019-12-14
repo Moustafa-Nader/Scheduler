@@ -49,16 +49,20 @@ namespace OSassignment
             sjf.Print();
             Console.WriteLine("\n");
 
-            Console.WriteLine("SRTF :");
-            SRTF srtf = new SRTF(testList());
-            srtf.Simulate();
-            srtf.Print();
-            srtf.Display();
-            Console.WriteLine("\n--\n");
+            //Console.WriteLine("SRTF :");
+            //SRTF srtf = new SRTF(testList());
+            //srtf.Simulate();
+            //srtf.Print();
+            //srtf.Display();
+            //Console.WriteLine("\n--\n");
 
             AG ag = new AG(AGpr);
             ag.Simulate();
-            ag.print();
+            //ag.print();
+            Console.WriteLine(ag.processes[0].pWaitingTime);
+            Console.WriteLine(ag.processes[1].pWaitingTime);
+            Console.WriteLine(ag.processes[2].pWaitingTime);
+            Console.WriteLine(ag.processes[3].pWaitingTime);
 
             /*
             SJF sjf = new SJF(p);
