@@ -107,7 +107,9 @@ namespace OSassignment
 
         public void Display()
         {
-            Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
+            //Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
+            Program.S1Form = new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs);
+
         }
     }
 }

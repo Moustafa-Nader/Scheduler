@@ -161,13 +161,13 @@ namespace OSassignment
                 finishedProcs.Add(p);
             }
         }
-
         public void Display()
         {
             EvaluateAvgTime();
             maketAxis();
             makefProcess();
-            Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
+            //Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
+            Program.PForm = new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs);
         }
     }
 }

@@ -11,6 +11,10 @@ namespace OSassignment
     {
         static Form1 myform;
         //[STAThread]
+        public static SRTFForm PForm;
+        public static SRTFForm S1Form;
+        public static SRTFForm S2Form;
+        public static SRTFForm AForm;
 
         static List<Process> testList()
         {
@@ -18,7 +22,8 @@ namespace OSassignment
             Process testProc2 = new Process(1, 7, 9, 13, new Color(150, 69, 200));
             Process testProc3 = new Process(2, 15, 15, 19, new Color(100, 200, 0));
             Process testProc4 = new Process(3, 8, 5, 15, new Color(0, 50, 200));
-            return new List<Process> { proc1, testProc2, testProc3, testProc4};
+            Process testProc5 = new Process(4, 8, 5, 15, new Color(0, 50, 200));
+            return new List<Process> { proc1, testProc2, testProc3, testProc4,testProc5};
         }
 
         static void Main(string[] args)
@@ -42,14 +47,14 @@ namespace OSassignment
             Process testProc3 = new Process(2, 15, 15, 19, new Color(250, 200, 150));
             Process testProc4 = new Process(3, 9, 9, 15, new Color(250, 200, 150));
             Process AGtestProc1 = new Process(0, 0, 17, 4, new Color(250, 200, 150));
-            Process AGtestProc2 = new Process(1, 3, 6, 9, new Color(250, 200, 150));
-            Process AGtestProc3 = new Process(2, 4, 10, 3, new Color(250, 200, 150));
-            Process AGtestProc4 = new Process(3, 29, 4, 8, new Color(250, 200, 150));
+            Process AGtestProc2 = new Process(1, 3, 6, 9, new Color(150, 69, 200));
+            Process AGtestProc3 = new Process(2, 4, 10, 3, new Color(100, 200, 0));
+            Process AGtestProc4 = new Process(3, 29, 4, 8, new Color(0, 50, 200));
             List<Process> p = new List<Process> { proc1, testProc2, testProc3, testProc4 };
             List<Process> pr = new List<Process> { proc1, testProc2, testProc3, testProc4 };
             List<Process> AGpr = new List<Process> { AGtestProc1, AGtestProc2, AGtestProc3, AGtestProc4 };
-          
-
+            List<Process> psp = new List<Process>(AGpr);
+            
             Console.WriteLine("SRTF :");
             SRTF srtf = new SRTF(testList(), ctxTime);
             srtf.Simulate();
@@ -81,12 +86,14 @@ namespace OSassignment
             //Console.WriteLine(String.Format("Average wait time: {0}\tAverage turn around time: {1}"), avgTime.Item1.ToString(), avgTime.Item2.ToString());
             //Console.WriteLine(sjf.print());
             */
+
+            //myform = new Form1(ps.processes);
             PS ps = new PS(testList());
             ps.Simulate();
             ps.print();
             ps.Display();
-            //myform = new Form1(ps.processes);
             //Application.Run(myform);
+            Application.Run(PForm);
         }
     }
 }
