@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace OSassignment
 {
@@ -9,6 +10,9 @@ namespace OSassignment
         List<Process> readyqueue;
         List<Process> tmpList;
         List<Process> mylist;
+        List<Process> timeAxis;
+        List<Process> finishedProcs;
+        double avgWaiting, avgTurnAround;
         int listiterator = 0;
         int quantam = 4;
         int timecount = 0;
@@ -17,6 +21,7 @@ namespace OSassignment
         {
             processes = pList;
             readyqueue = new List<Process>();
+            finishedProcs = new List<Process>();
             foreach (Process p in processes)
             {
                 p.AGquantam = quantam;
@@ -43,7 +48,11 @@ namespace OSassignment
                     {
                         updateReadyQueue();
                         if (current.Finished())
+                        {
+                            finishedProcs.Add(current);
+                            printQuantam();
                             break;
+                        }
                         if (i < nonP)   
                         {
                             current.pRemTime--;
@@ -61,6 +70,7 @@ namespace OSassignment
                             if (temp.AGfactor < current.AGfactor)
                             {   
                                 current.AGquantam += (current.AGquantam - (i));
+                                printQuantam();
                                 readyqueue.Add(current);
                                 readyqueue.Remove(temp);
                                 readyqueue.Insert(0, temp);
@@ -83,7 +93,10 @@ namespace OSassignment
                             foreach (Process p in readyqueue)
                                 total += p.AGquantam;
                             if (readyqueue.Count != 0)
+                            { 
                                 current.AGquantam += (int)Math.Ceiling((total / (double)readyqueue.Count) * 0.1);
+                                printQuantam();
+                            }
                             if (current.pRemTime > 0) readyqueue.Add(current);
                             break;
                         }
@@ -139,19 +152,36 @@ namespace OSassignment
             return processes.Count;
         }
 
+
         public void print()
         {
             Tuple<float, float> tuple = EvaluateAvgTime();
             Console.WriteLine("Average Wait Time: " + tuple.Item1);
-            Console.WriteLine("Average TurnAround Time: " + tuple.Item2);
-
-            Console.WriteLine("ss");
-            foreach (Process p in mylist)
+            Console.WriteLine("Average TurnAround Time: " + tuple.Item2);    
+        }
+        void printQuantam()
+        {
+            Console.Write("(");
+            for (int i = 0; i < processes.Count; i++)
             {
-                Console.WriteLine(p.pId + 1);
-                //Console.WriteLine (p.pWaitingTime);
-                //Console.WriteLine(p.pTurnAroundTime);
+                if (processes[i].Finished())
+                    Console.Write("0");
+                else Console.Write(processes[i].AGquantam);
+                if (i != processes.Count - 1)
+                    Console.Write(",");
             }
+            Console.WriteLine(")");
+
+        }
+
+        public void Display()
+        {
+            Tuple<float, float> tuple = EvaluateAvgTime();
+            avgWaiting = tuple.Item1;
+            avgTurnAround = tuple.Item2;
+            timeAxis = mylist;
+
+            Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
         }
     }
 
