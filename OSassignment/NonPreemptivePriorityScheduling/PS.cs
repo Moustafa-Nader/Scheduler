@@ -73,6 +73,7 @@ namespace OSassignment
                     //Console.WriteLine(p.ToString()+"    Wait:"+p.pWaitTime);
                     
                     p.pPriority -= (pShift[p.pId] / Aging);
+                    if (p.pPriority < 1) p.pPriority = 1; 
                     pShift[p.pId] %= Aging;
                     // Console.WriteLine(p.ToString()+"    Wait:"+p.pWaitTime);
                     //Console.WriteLine("----------------");
@@ -161,13 +162,13 @@ namespace OSassignment
                 finishedProcs.Add(p);
             }
         }
-
         public void Display()
         {
             EvaluateAvgTime();
             maketAxis();
             makefProcess();
-            Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
+            //Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
+            Program.PForm = new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs);
         }
     }
 }

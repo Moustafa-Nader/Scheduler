@@ -25,7 +25,7 @@ namespace OSassignment
             currentProc = null;
             avgTurnAround = 0;
             avgWaiting = 0;
-            ctxTime = _ctxTime;
+            ctxTime = _ctxTime = 0;
         }
 
         public void Simulate()
@@ -107,7 +107,9 @@ namespace OSassignment
 
         public void Display()
         {
-            Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
+            //Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
+            Program.S1Form = new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs);
+
         }
     }
 }

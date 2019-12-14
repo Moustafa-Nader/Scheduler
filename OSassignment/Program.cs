@@ -11,6 +11,10 @@ namespace OSassignment
     {
         static Form1 myform;
         //[STAThread]
+        public static SRTFForm PForm;
+        public static SRTFForm S1Form;
+        public static SRTFForm S2Form;
+        public static SRTFForm AForm;
 
         static List<Process> procs;
 
@@ -28,7 +32,10 @@ namespace OSassignment
             Process testProc2 = new Process(1, 7, 9, 13, new Color(150, 69, 200));
             Process testProc3 = new Process(2, 15, 15, 19, new Color(100, 200, 0));
             Process testProc4 = new Process(3, 8, 5, 15, new Color(0, 50, 200));
-            return new List<Process> { proc1, testProc2, testProc3, testProc4 };
+
+            Process testProc5 = new Process(4, 8, 5, 15, new Color(0, 50, 200));
+            return new List<Process> { proc1, testProc2, testProc3, testProc4,testProc5};
+
         }
 
         static void Main(string[] args)
@@ -42,7 +49,7 @@ namespace OSassignment
             procs = new List<Process>();
 
             int ctxTime = 0;
-            /*
+            
             Console.Write("Number of Processes : ");
             int cnt = int.Parse(Console.ReadLine());
             Console.Write("Round Robin : ");
@@ -69,14 +76,9 @@ namespace OSassignment
                 Process proc = new Process(i, arrivalTime, burstTime, priority, new Color(red, green, blue));
                 procs.Add(proc);
             }
-            */
+            
 
-            Console.WriteLine("SJF :");
-            SJF2 sjf = new SJF2(testList(), ctxTime);
-            sjf.Simulate();
-            sjf.Print();
-            sjf.Display();
-            Console.WriteLine("\n");
+           
 
 
             Process proc1 = new Process(0, 10, 11, 15, new Color(250, 200, 150));
@@ -90,54 +92,39 @@ namespace OSassignment
             List<Process> p = new List<Process> { proc1, testProc2, testProc3, testProc4 };
             List<Process> pr = new List<Process> { proc1, testProc2, testProc3, testProc4 };
             List<Process> AGpr = new List<Process> { AGtestProc1, AGtestProc2, AGtestProc3, AGtestProc4 };
-          
 
+            List<Process> psp = new List<Process>(AGpr);
+
+            Console.WriteLine("SJF :");
+            SJF2 sjf = new SJF2(getProcs(), ctxTime);
+            sjf.Simulate();
+            sjf.Print();
+            sjf.Display();
+            Console.WriteLine("\n");
 
             Console.WriteLine("SRTF :");
-            SRTF srtf = new SRTF(testList(), ctxTime);
+            SRTF srtf = new SRTF(getProcs(), ctxTime);
             srtf.Simulate();
             srtf.Print();
             srtf.Display();
             Console.WriteLine("\n");
 
-
-            /*
-            AG ag = new AG(AGpr);
-            ag.Simulate();
-            ag.print();
-            ag.Display();
-            Console.WriteLine(ag.processes[0].pWaitingTime);
-            Console.WriteLine(ag.processes[1].pWaitingTime);
-            Console.WriteLine(ag.processes[2].pWaitingTime);
-            Console.WriteLine(ag.processes[3].pWaitingTime);
-
-            
-            SJF sjf = new SJF(p);
-            Console.WriteLine(sjf.print());
-
-            Console.WriteLine("initialized SJF object\n");
-
-            sjf.SortProcesses();
-
-            Console.Write("Order of execution is: ");
-            for (int i = 0; i < sjf.GetProcNum(); ++i)
-                Console.Write(sjf.GetProc(i).pId + " ");
-            */
             Console.WriteLine("AG :");
-            AG ag = new AG(testList(),roundRobin);
+            AG ag = new AG(getProcs(),roundRobin);
             ag.Simulate();
             ag.print();
             ag.Display();
-            
-            
-
             Console.WriteLine("\n");
 
             Console.WriteLine("PS :");
-            PS ps = new PS(testList());
+            PS ps = new PS(getProcs());
             ps.Simulate();
             ps.print();
             ps.Display();
+
+            //Application.Run(myform);
+            Application.Run(PForm);
+
             Console.WriteLine("\n");
 
         }

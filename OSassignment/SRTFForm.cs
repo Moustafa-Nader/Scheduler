@@ -65,5 +65,29 @@ namespace OSassignment
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.AForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.PForm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.S1Form.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.S2Form.Show();
+        }
     }
 }

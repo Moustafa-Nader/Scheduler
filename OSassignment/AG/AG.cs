@@ -51,7 +51,7 @@ namespace OSassignment
 
         public void Simulate()
         {
-
+            printQuantam();
             for (int AGTime = 0; AGTime < 1000; AGTime++)
             {
                 updateReadyQueue();
@@ -120,7 +120,11 @@ namespace OSassignment
                     }
 
                 }
-                else timecount++;
+                else
+                {
+                    timecount++;
+                    mylist.Add(null);
+                }
             }
         }
 
@@ -199,7 +203,9 @@ namespace OSassignment
             avgTurnAround = tuple.Item2;
             timeAxis = mylist;
 
-            Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
+            // Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
+            Program.AForm = new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs);
+
         }
     }
 
