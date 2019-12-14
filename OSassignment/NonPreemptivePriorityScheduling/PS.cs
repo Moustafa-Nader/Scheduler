@@ -73,6 +73,7 @@ namespace OSassignment
                     //Console.WriteLine(p.ToString()+"    Wait:"+p.pWaitTime);
                     
                     p.pPriority -= (pShift[p.pId] / Aging);
+                    if (p.pPriority < 1) p.pPriority = 1; 
                     pShift[p.pId] %= Aging;
                     // Console.WriteLine(p.ToString()+"    Wait:"+p.pWaitTime);
                     //Console.WriteLine("----------------");

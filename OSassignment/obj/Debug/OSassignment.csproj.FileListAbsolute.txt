@@ -39,3 +39,4 @@ E:\New folder (12)\Scheduler\OSassignment\obj\Debug\OSassignment.csproj.Generate
 E:\New folder (12)\Scheduler\OSassignment\obj\Debug\OSassignment.csproj.CoreCompileInputs.cache
 E:\New folder (12)\Scheduler\OSassignment\obj\Debug\OSassignment.exe
 E:\New folder (12)\Scheduler\OSassignment\obj\Debug\OSassignment.pdb
+D:\Programming Projects\Scheduler\OSassignment\obj\Debug\OSassignment.SRTFForm.resources

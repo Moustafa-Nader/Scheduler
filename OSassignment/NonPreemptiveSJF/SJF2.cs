@@ -25,7 +25,7 @@ namespace OSassignment
             currentProc = null;
             avgTurnAround = 0;
             avgWaiting = 0;
-            ctxTime = _ctxTime;
+            ctxTime = _ctxTime = 0;
         }
 
         public void Simulate()

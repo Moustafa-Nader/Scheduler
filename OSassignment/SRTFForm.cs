@@ -15,6 +15,7 @@ namespace OSassignment
         public SRTFForm(List<Process> timeAxis, double awt, double atat, List<Process> finishedProcs)
         {
             InitializeComponent();
+            Console.WriteLine(timeAxis.Count);
             int i = 0;
 
             chart1.ChartAreas[0].AxisY.RoundAxisValues();
