@@ -30,9 +30,12 @@ namespace OSassignment
             int ctxTime = 1;
 
             Console.WriteLine("SJF :");
-            SJF2 sjf = new SJF2(testList());
+            SJF2 sjf = new SJF2(testList(), ctxTime);
 
-
+            sjf.Simulate();
+            sjf.Print();
+            sjf.Display();
+            Console.WriteLine("\n");
 
             Process proc1 = new Process(0, 10, 11, 15, new Color(250, 200, 150));
             Process testProc2 = new Process(1, 7, 3, 13, new Color(250, 200, 150));
@@ -45,11 +48,7 @@ namespace OSassignment
             List<Process> p = new List<Process> { proc1, testProc2, testProc3, testProc4 };
             List<Process> pr = new List<Process> { proc1, testProc2, testProc3, testProc4 };
             List<Process> AGpr = new List<Process> { AGtestProc1, AGtestProc2, AGtestProc3, AGtestProc4 };
-           
-
-            sjf.Simulate();
-            sjf.Print();
-            Console.WriteLine("\n");
+          
 
             Console.WriteLine("SRTF :");
             SRTF srtf = new SRTF(testList(), ctxTime);
