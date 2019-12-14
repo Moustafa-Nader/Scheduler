@@ -15,7 +15,8 @@ namespace OSassignment
         List<Process> timeAxis;
         Process currentProc;
         double avgTurnAround, avgWaiting;
-        public SRTF(List<Process> procs)
+        int ctxTime;
+        public SRTF(List<Process> procs, int _ctxTime)
         {
             processes = procs.ToList(); // take a copy
             readyQueue = new List<Process>();
@@ -24,6 +25,7 @@ namespace OSassignment
             currentProc = null;
             avgTurnAround = 0;
             avgWaiting = 0;
+            ctxTime = _ctxTime;
         }
 
         public void Simulate()
@@ -62,6 +64,9 @@ namespace OSassignment
             {
                 currentProc = readyQueue[0];
                 readyQueue.Remove(currentProc);
+                // add ctx switch time
+                for (int i = 0; i < ctxTime; ++i)
+                    timeAxis.Add(null);
             }
             // replace current process if a shorter remaining process exists in ready queue (context switch)
             if (currentProc != null && readyQueue.Count > 0)
@@ -71,6 +76,9 @@ namespace OSassignment
                     readyQueue.Add(currentProc);
                     currentProc = readyQueue[0];
                     readyQueue.Remove(currentProc);
+                    // add ctx switch time
+                    for (int i = 0; i < ctxTime; ++i)
+                        timeAxis.Add(null);
                 }
             }
             // decrease remaining time of current process
