@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 namespace OSassignment
 {
      class PS
@@ -8,7 +9,11 @@ namespace OSassignment
         List<int> pTurnAroundTime;
         public List<Process> processes;
         List<Process> tmpList;
-
+        double avgWaiting;
+        double avgTurnAround;
+        List<Process> finishedProcs;
+        List<Process> timeAxis;
+        int time;
         public PS(List<Process> schedulingList)
         {
             processes = new List<Process>();
@@ -16,7 +21,8 @@ namespace OSassignment
             pTurnAroundTime = new List<int>();
             readyQueue = new List<Process>();
             pWaitTime= new List<int>();
-
+            finishedProcs = new List<Process>();
+            timeAxis = new List<Process>();
 
         }
         List<Process> readyQueue;
@@ -33,7 +39,7 @@ namespace OSassignment
                // pShift[tmpList[i].pId] = tmpList[i].pArrivalTime;
             }
             //init time with the first arrival
-            int time = tmpList[0].pArrivalTime;
+            time = tmpList[0].pArrivalTime;
             //add the firt element of tmplist to ready queue
             readyQueue.Add(tmpList[0]);
             //remove the first element
@@ -119,12 +125,49 @@ namespace OSassignment
                 totalTurnAroundTime += pTurnAroundTime[i];
             }
             float avgWaitTime = (float)totalWaitTime / (float)GetProcNum();
+            avgWaiting = (double)avgWaitTime;
             float avgTurnAroundTime = (float)totalTurnAroundTime / (float)GetProcNum();
+            avgTurnAround = (double)avgTurnAroundTime;
             return new System.Tuple<float, float>(avgWaitTime, avgTurnAroundTime);
         }
         public int GetProcNum()
         {
             return processes.Count;
+        }
+        void maketAxis()
+        {
+            for(int i = 0,j=0; i < time; ++i)
+            {
+                if (j == processes.Count) break;
+                int t = processes[j].pArrivalTime+processes[j].pWaitingTime;
+                while(i< t)
+                {
+                    timeAxis.Add(null);
+                    i++;
+                }
+                while(i<(processes[j].pArrivalTime + processes[j].pWaitingTime+processes[j].pBurstTime))
+                {
+                    timeAxis.Add(processes[j]);
+                    i++;
+                }
+                j++;
+
+            }
+        }
+        void makefProcess()
+        {
+            foreach(Process p in processes)
+            {
+                finishedProcs.Add(p);
+            }
+        }
+
+        public void Display()
+        {
+            EvaluateAvgTime();
+            maketAxis();
+            makefProcess();
+            Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
         }
     }
 }

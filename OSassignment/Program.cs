@@ -84,9 +84,9 @@ namespace OSassignment
             PS ps = new PS(testList());
             ps.Simulate();
             ps.print();
-
-            myform = new Form1(ps.processes);
-            Application.Run(myform);
+            ps.Display();
+            //myform = new Form1(ps.processes);
+            //Application.Run(myform);
         }
     }
 }
