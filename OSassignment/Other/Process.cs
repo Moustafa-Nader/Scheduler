@@ -41,7 +41,7 @@ namespace OSassignment
 
         public override string ToString()
         {
-            string res = string.Format("Process {0}  :  Arrived {1}  :  Burst {2}  :  Priority {3}  :  Color ({4}, {5}, {6})", pId, pArrivalTime, pBurstTime, pPriority, pColor[0].ToString(), pColor[1].ToString(), pColor[2].ToString()) ;
+            string res = string.Format("Process {0}  :  Arrived {1}  :  Burst {2}  :  Priority {3}  :  Color ({4}, {5}, {6}) ", pId, pArrivalTime, pBurstTime, pPriority, pColor[0].ToString(), pColor[1].ToString(), pColor[2].ToString()) ;
             res += "\n" + string.Format("Waiting Time {0} : Turn Around Time {1}", pWaitingTime, pTurnAroundTime);
             return res;
         }

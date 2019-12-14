@@ -14,6 +14,7 @@ namespace OSassignment
         List<Process> finishedProcs;
         List<Process> timeAxis;
         Process currentProc;
+        double avgTurnAround, avgWaiting;
         public SRTF(List<Process> procs)
         {
             processes = procs.ToList(); // take a copy
@@ -21,6 +22,8 @@ namespace OSassignment
             finishedProcs = new List<Process>();
             timeAxis = new List<Process>();
             currentProc = null;
+            avgTurnAround = 0;
+            avgWaiting = 0;
         }
 
         public void Simulate()
@@ -95,7 +98,6 @@ namespace OSassignment
 
         public void Print()
         {
-            double avgTurnAround = 0, avgWaiting = 0;
             foreach (Process proc in finishedProcs)
             {
                 avgTurnAround += proc.pTurnAroundTime;
@@ -110,7 +112,7 @@ namespace OSassignment
 
         public void Display()
         {
-            Application.Run(new SRTFForm(timeAxis));
+            Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
         }
     }
 }

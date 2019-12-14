@@ -15,9 +15,9 @@ namespace OSassignment
         static List<Process> testList()
         {
             Process proc1 = new Process(0, 10, 11, 15, new Color(250, 200, 150));
-            Process testProc2 = new Process(1, 7, 9, 13, new Color(250, 200, 150));
-            Process testProc3 = new Process(2, 15, 15, 19, new Color(250, 200, 150));
-            Process testProc4 = new Process(3, 8, 5, 15, new Color(250, 200, 150));
+            Process testProc2 = new Process(1, 7, 9, 13, new Color(150, 69, 200));
+            Process testProc3 = new Process(2, 15, 15, 19, new Color(100, 200, 0));
+            Process testProc4 = new Process(3, 8, 5, 15, new Color(0, 50, 200));
             return new List<Process> { proc1, testProc2, testProc3, testProc4 };
         }
 
