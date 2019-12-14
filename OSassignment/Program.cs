@@ -15,10 +15,10 @@ namespace OSassignment
         static List<Process> testList()
         {
             Process proc1 = new Process(0, 10, 11, 15, new Color(250, 200, 150));
-            Process testProc2 = new Process(1, 7, 9, 13, new Color(250, 200, 150));
-            Process testProc3 = new Process(2, 15, 15, 19, new Color(250, 200, 150));
-            Process testProc4 = new Process(3, 8, 5, 15, new Color(250, 200, 150));
-            return new List<Process> { proc1, testProc2, testProc3, testProc4 };
+            Process testProc2 = new Process(1, 7, 9, 13, new Color(150, 69, 200));
+            Process testProc3 = new Process(2, 15, 15, 19, new Color(100, 200, 0));
+            Process testProc4 = new Process(3, 8, 5, 15, new Color(0, 50, 200));
+            return new List<Process> { proc1, testProc2, testProc3, testProc4};
         }
 
         static void Main(string[] args)
@@ -27,10 +27,15 @@ namespace OSassignment
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            int ctxTime = 1;
+
             Console.WriteLine("SJF :");
-            SJF2 sjf = new SJF2(testList());
+            SJF2 sjf = new SJF2(testList(), ctxTime);
 
-
+            sjf.Simulate();
+            sjf.Print();
+            sjf.Display();
+            Console.WriteLine("\n");
 
             Process proc1 = new Process(0, 10, 11, 15, new Color(250, 200, 150));
             Process testProc2 = new Process(1, 7, 3, 13, new Color(250, 200, 150));
@@ -43,14 +48,10 @@ namespace OSassignment
             List<Process> p = new List<Process> { proc1, testProc2, testProc3, testProc4 };
             List<Process> pr = new List<Process> { proc1, testProc2, testProc3, testProc4 };
             List<Process> AGpr = new List<Process> { AGtestProc1, AGtestProc2, AGtestProc3, AGtestProc4 };
-           
-
-            sjf.Simulate();
-            sjf.Print();
-            Console.WriteLine("\n");
+          
 
             Console.WriteLine("SRTF :");
-            SRTF srtf = new SRTF(testList());
+            SRTF srtf = new SRTF(testList(), ctxTime);
             srtf.Simulate();
             srtf.Print();
             srtf.Display();
