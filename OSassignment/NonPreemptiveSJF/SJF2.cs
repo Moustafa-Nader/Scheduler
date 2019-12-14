@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OSassignment
 {
@@ -11,13 +12,20 @@ namespace OSassignment
         List<Process> processes;
         List<Process> readyQueue;
         List<Process> finishedProcs;
+        List<Process> timeAxis;
         Process currentProc;
-        public SJF2(List<Process> procs)
+        double avgTurnAround, avgWaiting;
+        int ctxTime;
+        public SJF2(List<Process> procs, int _ctxTime)
         {
             processes = procs.ToList(); // take a copy
             readyQueue = new List<Process>();
             finishedProcs = new List<Process>();
+            timeAxis = new List<Process>();
             currentProc = null;
+            avgTurnAround = 0;
+            avgWaiting = 0;
+            ctxTime = _ctxTime;
         }
 
         public void Simulate()
@@ -56,10 +64,14 @@ namespace OSassignment
             {
                 currentProc = readyQueue[0];
                 readyQueue.Remove(currentProc);
+                // add ctx switch time
+                for (int i = 0; i < ctxTime; ++i)
+                    timeAxis.Add(null);
             }
             // decrease remaining time of current process
             if (currentProc != null)
             {
+                timeAxis.Add(currentProc);
                 // Console.WriteLine(time.ToString() + " " + currentProc.pId.ToString() + " " + currentProc.pWaitingTime.ToString());
                 currentProc.pRemTime--;
                 if (currentProc.pRemTime == 0)
@@ -67,6 +79,10 @@ namespace OSassignment
                     finishedProcs.Add(currentProc);
                     currentProc = null;
                 }
+            }
+            else
+            {
+                timeAxis.Add(null);
             }
             // update waiting time of each process
             foreach(Process proc in readyQueue)
@@ -77,7 +93,6 @@ namespace OSassignment
 
         public void Print()
         {
-            double avgTurnAround = 0, avgWaiting = 0;
             foreach(Process proc in finishedProcs)
             {
                 avgTurnAround += proc.pTurnAroundTime;
@@ -88,6 +103,11 @@ namespace OSassignment
             avgWaiting /= (double)finishedProcs.Count;
             Console.WriteLine("Average Waiting Time : " + avgWaiting.ToString());
             Console.WriteLine("Average Turn Around Time : " + avgTurnAround.ToString());
+        }
+
+        public void Display()
+        {
+            Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
         }
     }
 }

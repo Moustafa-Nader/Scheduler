@@ -14,13 +14,18 @@ namespace OSassignment
         List<Process> finishedProcs;
         List<Process> timeAxis;
         Process currentProc;
-        public SRTF(List<Process> procs)
+        double avgTurnAround, avgWaiting;
+        int ctxTime;
+        public SRTF(List<Process> procs, int _ctxTime)
         {
             processes = procs.ToList(); // take a copy
             readyQueue = new List<Process>();
             finishedProcs = new List<Process>();
             timeAxis = new List<Process>();
             currentProc = null;
+            avgTurnAround = 0;
+            avgWaiting = 0;
+            ctxTime = _ctxTime;
         }
 
         public void Simulate()
@@ -59,6 +64,9 @@ namespace OSassignment
             {
                 currentProc = readyQueue[0];
                 readyQueue.Remove(currentProc);
+                // add ctx switch time
+                for (int i = 0; i < ctxTime; ++i)
+                    timeAxis.Add(null);
             }
             // replace current process if a shorter remaining process exists in ready queue (context switch)
             if (currentProc != null && readyQueue.Count > 0)
@@ -68,6 +76,9 @@ namespace OSassignment
                     readyQueue.Add(currentProc);
                     currentProc = readyQueue[0];
                     readyQueue.Remove(currentProc);
+                    // add ctx switch time
+                    for (int i = 0; i < ctxTime; ++i)
+                        timeAxis.Add(null);
                 }
             }
             // decrease remaining time of current process
@@ -95,7 +106,6 @@ namespace OSassignment
 
         public void Print()
         {
-            double avgTurnAround = 0, avgWaiting = 0;
             foreach (Process proc in finishedProcs)
             {
                 avgTurnAround += proc.pTurnAroundTime;
@@ -110,7 +120,7 @@ namespace OSassignment
 
         public void Display()
         {
-            Application.Run(new SRTFForm(timeAxis));
+            Application.Run(new SRTFForm(timeAxis, avgWaiting, avgTurnAround, finishedProcs));
         }
     }
 }
