@@ -12,13 +12,23 @@ namespace OSassignment
         static Form1 myform;
         //[STAThread]
 
+        static List<Process> procs;
+
+        static List<Process> getProcs()
+        {
+            List<Process> test = new List<Process>();
+            foreach (Process proc in procs)
+                test.Add(new Process(proc.pId, proc.pArrivalTime, proc.pBurstTime, proc.pPriority, proc.pColor));
+            return test;
+        }
+
         static List<Process> testList()
         {
             Process proc1 = new Process(0, 10, 11, 15, new Color(250, 200, 150));
             Process testProc2 = new Process(1, 7, 9, 13, new Color(150, 69, 200));
             Process testProc3 = new Process(2, 15, 15, 19, new Color(100, 200, 0));
             Process testProc4 = new Process(3, 8, 5, 15, new Color(0, 50, 200));
-            return new List<Process> { proc1, testProc2, testProc3, testProc4};
+            return new List<Process> { proc1, testProc2, testProc3, testProc4 };
         }
 
         static void Main(string[] args)
@@ -27,66 +37,65 @@ namespace OSassignment
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            int ctxTime = 1;
+            procs = new List<Process>();
+
+            int ctxTime = 0;
+            /*
+            Console.Write("Number of Processes : ");
+            int cnt = int.Parse(Console.ReadLine());
+            Console.Write("Round Robin : ");
+            int roundRobin = int.Parse(Console.ReadLine());
+            Console.Write("Context Switch : ");
+            ctxTime = int.Parse(Console.ReadLine());
+            
+            for(int i=0; i<cnt; ++i)
+            {
+                Console.Write("Process Name: ");
+                String pName = Console.ReadLine();
+                Console.Write("Red: ");
+                byte red = byte.Parse(Console.ReadLine());
+                Console.Write("Green: ");
+                byte green = byte.Parse(Console.ReadLine());
+                Console.Write("Blue: ");
+                byte blue = byte.Parse(Console.ReadLine());
+                Console.Write("Arrival Time : ");
+                int arrivalTime = int.Parse(Console.ReadLine());
+                Console.Write("Burst Time : ");
+                int burstTime = int.Parse(Console.ReadLine());
+                Console.Write("Priority : ");
+                int priority = int.Parse(Console.ReadLine());
+                Process proc = new Process(i, arrivalTime, burstTime, priority, new Color(red, green, blue));
+                procs.Add(proc);
+            }
+            */
 
             Console.WriteLine("SJF :");
             SJF2 sjf = new SJF2(testList(), ctxTime);
-
             sjf.Simulate();
             sjf.Print();
             sjf.Display();
             Console.WriteLine("\n");
-
-            Process proc1 = new Process(0, 10, 11, 15, new Color(250, 200, 150));
-            Process testProc2 = new Process(1, 7, 3, 13, new Color(250, 200, 150));
-            Process testProc3 = new Process(2, 15, 15, 19, new Color(250, 200, 150));
-            Process testProc4 = new Process(3, 9, 9, 15, new Color(250, 200, 150));
-            Process AGtestProc1 = new Process(0, 0, 17, 4, new Color(250, 200, 150));
-            Process AGtestProc2 = new Process(1, 3, 6, 9, new Color(250, 200, 150));
-            Process AGtestProc3 = new Process(2, 4, 10, 3, new Color(250, 200, 150));
-            Process AGtestProc4 = new Process(3, 29, 4, 8, new Color(250, 200, 150));
-            List<Process> p = new List<Process> { proc1, testProc2, testProc3, testProc4 };
-            List<Process> pr = new List<Process> { proc1, testProc2, testProc3, testProc4 };
-            List<Process> AGpr = new List<Process> { AGtestProc1, AGtestProc2, AGtestProc3, AGtestProc4 };
-          
 
             Console.WriteLine("SRTF :");
             SRTF srtf = new SRTF(testList(), ctxTime);
             srtf.Simulate();
             srtf.Print();
             srtf.Display();
-            Console.WriteLine("\n--\n");
-
-            AG ag = new AG(AGpr);
-            ag.Simulate();
-            ag.print();
-
-            /*
-            SJF sjf = new SJF(p);
-            Console.WriteLine(sjf.print());
-
-            Console.WriteLine("initialized SJF object\n");
-
-            sjf.SortProcesses();
-
-            Console.Write("Order of execution is: ");
-            for (int i = 0; i < sjf.GetProcNum(); ++i)
-                Console.Write(sjf.GetProc(i).pId + " ");
             Console.WriteLine("\n");
 
-            Tuple<float, float> avgTime = sjf.EvaluateAvgTime();
+            Console.WriteLine("AG :");
+            AG ag = new AG(testList());
+            ag.Simulate();
+            ag.print();
+            Console.WriteLine("\n");
 
-            Console.Write("Average wait time: " + avgTime.Item1.ToString() + "\t");
-            Console.Write("Average turn around time: " + avgTime.Item2.ToString() + "\n");
-            //Console.WriteLine(String.Format("Average wait time: {0}\tAverage turn around time: {1}"), avgTime.Item1.ToString(), avgTime.Item2.ToString());
-            //Console.WriteLine(sjf.print());
-            */
+            Console.WriteLine("PS :");
             PS ps = new PS(testList());
             ps.Simulate();
             ps.print();
             ps.Display();
-            //myform = new Form1(ps.processes);
-            //Application.Run(myform);
+            Console.WriteLine("\n");
+
         }
     }
 }
