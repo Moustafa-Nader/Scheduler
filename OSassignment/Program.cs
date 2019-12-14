@@ -133,7 +133,7 @@ namespace OSassignment
             ps.Simulate();
             ps.print();
             ps.Display();
-            Console.WriteLine("\n");*
+            Console.WriteLine("\n");
 
         }
     }
