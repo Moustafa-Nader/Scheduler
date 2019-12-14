@@ -32,6 +32,23 @@ namespace OSassignment
             tmpList = new List<Process>(processes);
         }
 
+        public AG(List<Process> pList , int inputQuantam)
+        {
+            processes = pList;
+            readyqueue = new List<Process>();
+            finishedProcs = new List<Process>();
+            quantam = inputQuantam;
+            foreach (Process p in processes)
+            {
+                p.AGquantam = quantam;
+                totaltime += p.pBurstTime;
+            }
+            processes.Sort((x, y) => x.pArrivalTime.CompareTo(y.pArrivalTime));
+            mylist = new List<Process>();
+            tmpList = new List<Process>(processes);
+
+        }
+
         public void Simulate()
         {
 
@@ -53,7 +70,7 @@ namespace OSassignment
                             printQuantam();
                             break;
                         }
-                        if (i < nonP)   
+                        if (i < nonP)
                         {
                             current.pRemTime--;
                             foreach (Process p in readyqueue)
@@ -68,7 +85,7 @@ namespace OSassignment
                             if (readyqueue.Count != 0)
                                 temp = getMinAGfactor();
                             if (temp.AGfactor < current.AGfactor)
-                            {   
+                            {
                                 current.AGquantam += (current.AGquantam - (i));
                                 printQuantam();
                                 readyqueue.Add(current);
@@ -93,7 +110,7 @@ namespace OSassignment
                             foreach (Process p in readyqueue)
                                 total += p.AGquantam;
                             if (readyqueue.Count != 0)
-                            { 
+                            {
                                 current.AGquantam += (int)Math.Ceiling((total / (double)readyqueue.Count) * 0.1);
                                 printQuantam();
                             }
@@ -103,6 +120,7 @@ namespace OSassignment
                     }
 
                 }
+                else timecount++;
             }
         }
 

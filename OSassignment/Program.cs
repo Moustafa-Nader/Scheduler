@@ -37,6 +37,8 @@ namespace OSassignment
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            int roundRobin = 4;
+
             procs = new List<Process>();
 
             int ctxTime = 0;
@@ -44,7 +46,7 @@ namespace OSassignment
             Console.Write("Number of Processes : ");
             int cnt = int.Parse(Console.ReadLine());
             Console.Write("Round Robin : ");
-            int roundRobin = int.Parse(Console.ReadLine());
+            roundRobin = int.Parse(Console.ReadLine());
             Console.Write("Context Switch : ");
             ctxTime = int.Parse(Console.ReadLine());
             
@@ -99,7 +101,7 @@ namespace OSassignment
             Console.WriteLine("\n");
 
 
-
+            /*
             AG ag = new AG(AGpr);
             ag.Simulate();
             ag.print();
@@ -109,7 +111,7 @@ namespace OSassignment
             Console.WriteLine(ag.processes[2].pWaitingTime);
             Console.WriteLine(ag.processes[3].pWaitingTime);
 
-            /*
+            
             SJF sjf = new SJF(p);
             Console.WriteLine(sjf.print());
 
@@ -122,9 +124,12 @@ namespace OSassignment
                 Console.Write(sjf.GetProc(i).pId + " ");
             */
             Console.WriteLine("AG :");
-            AG ag = new AG(testList());
+            AG ag = new AG(testList(),roundRobin);
             ag.Simulate();
             ag.print();
+            ag.Display();
+            
+            
 
             Console.WriteLine("\n");
 
