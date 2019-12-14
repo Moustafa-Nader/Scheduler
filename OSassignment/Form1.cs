@@ -29,6 +29,15 @@ namespace OSassignment
             chart1.ChartAreas[0].AxisY.RoundAxisValues();
 
         }
-        
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
